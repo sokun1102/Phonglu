@@ -1,0 +1,213 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, #0f0f12 0%, #14141a 50%, #0f0f12 100%);
+  border-bottom: 1px solid rgba(255, 70, 85, 0.2);
+  box-shadow:
+    0 0 30px rgba(255, 70, 85, 0.08),
+    0 0 60px rgba(0, 212, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-hsu-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(255, 70, 85, 0.3);
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.logo:hover {
+  color: var(--neon-red) !important;
+  text-shadow: 0 0 24px rgba(255, 70, 85, 0.6);
+}
+
+.logo-icon {
+  color: var(--neon-red);
+  font-size: 0.85rem;
+  filter: drop-shadow(0 0 6px var(--neon-red));
+}
+
+.logo-text {
+  font-style: normal;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-muted) !important;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-red), var(--neon-cyan));
+  transition: width 0.25s;
+}
+.nav-link:hover {
+  color: var(--text) !important;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+.nav-link.active {
+  color: var(--neon-red) !important;
+  text-shadow: 0 0 12px rgba(255, 70, 85, 0.4);
+}
+
+/* LED strip — long running blink */
+.header-led-strip {
+  position: relative;
+  height: 4px;
+  overflow: hidden;
+  display: flex;
+}
+
+.header-led {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  border-radius: 0 0 2px 2px;
+  animation: header-led-run 3s linear infinite;
+}
+
+.header-led--1 {
+  left: 0;
+  width: 120px;
+  background: linear-gradient(90deg, transparent, var(--neon-red), var(--neon-red), transparent);
+  box-shadow: 0 0 12px var(--neon-red), 0 0 24px rgba(255, 70, 85, 0.6);
+  animation-delay: 0s;
+}
+
+.header-led--2 {
+  left: 0;
+  width: 100px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-cyan), transparent);
+  box-shadow: 0 0 12px var(--neon-cyan), 0 0 24px rgba(0, 212, 255, 0.5);
+  animation-delay: 0.5s;
+}
+
+.header-led--3 {
+  left: 0;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, var(--neon-green), var(--neon-green), transparent);
+  box-shadow: 0 0 12px var(--neon-green), 0 0 24px rgba(15, 235, 158, 0.5);
+  animation-delay: 1s;
+}
+
+@keyframes header-led-run {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.9;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0.9;
+  }
+}
+
+/* Second row: continuous rainbow-style strip */
+.header-led-strip::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--neon-red) 15%,
+    var(--neon-pink) 30%,
+    var(--neon-cyan) 50%,
+    var(--neon-green) 70%,
+    var(--neon-red) 85%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: header-led-flow 4s linear infinite;
+  opacity: 0.85;
+}
+
+.header-led-strip::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--neon-red),
+    var(--neon-cyan),
+    var(--neon-green),
+    var(--neon-red)
+  );
+  background-size: 400% 100%;
+  animation: header-led-flow 3s linear infinite reverse;
+  opacity: 0.6;
+}
+
+@keyframes header-led-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    gap: 1.25rem;
+  }
+  .header-hsu-logo {
+    height: 30px;
+  }
+  .header-brand {
+    gap: 0.75rem;
+  }
+}

@@ -1,0 +1,232 @@
+.about-page {
+  padding-bottom: calc(var(--space) * 3);
+  overflow: hidden;
+}
+
+/* Hero with effects */
+.about-hero {
+  position: relative;
+  padding: calc(var(--space) * 2.5) 0;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 70, 85, 0.03) 50%, transparent 100%);
+  animation: about-sweep 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes about-sweep {
+  0%, 100% { opacity: 0; transform: translateX(-20%); }
+  50% { opacity: 1; transform: translateX(20%); }
+}
+
+.about-hero-badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--neon-red);
+  background: rgba(255, 70, 85, 0.12);
+  border: 1px solid rgba(255, 70, 85, 0.3);
+  border-radius: var(--radius);
+  animation: about-badge-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes about-badge-glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(255, 70, 85, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(255, 70, 85, 0.4); }
+}
+
+.about-hero-title {
+  margin: 0 0 0.35em;
+  font-size: 1.75rem;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 24px rgba(255, 70, 85, 0.15);
+}
+
+.about-hero-desc {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.about-body {
+  padding-top: calc(var(--space) * 2);
+}
+
+/* Fade-in effects */
+.about-fx {
+  opacity: 0;
+  animation: about-fade-in 0.6s ease-out forwards;
+}
+
+.about-fx-1 { animation-delay: 0.1s; }
+.about-fx-2 { animation-delay: 0.2s; }
+.about-fx-3 { animation-delay: 0.3s; }
+.about-fx-4 { animation-delay: 0.4s; }
+
+@keyframes about-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-intro {
+  margin-bottom: 2rem;
+}
+
+.about-lead {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--text);
+  max-width: 60ch;
+}
+
+.about-intro p:last-child {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 58ch;
+}
+
+.about-lead strong {
+  color: var(--neon-red);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.about-block {
+  padding: 1.35rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.about-block:hover {
+  border-color: rgba(255, 70, 85, 0.35);
+  box-shadow: 0 0 28px rgba(255, 70, 85, 0.08);
+}
+
+.about-block h2 {
+  margin: 0 0 0.75em;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--neon-red);
+}
+
+.about-block p,
+.about-block ul {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.about-block-extra {
+  margin-top: 0.75rem !important;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem !important;
+  color: var(--text-muted) !important;
+}
+
+.about-block ul {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.about-block li {
+  margin-bottom: 0.4em;
+}
+
+.about-block li:last-child {
+  margin-bottom: 0;
+}
+
+.about-block strong {
+  color: var(--neon-green);
+}
+
+.about-connect {
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-connect h2 {
+  margin: 0 0 0.5em;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--neon-red);
+}
+
+.about-connect p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.about-visual {
+  margin-bottom: 0;
+}
+
+.about-visual-img {
+  position: relative;
+  max-width: 420px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+
+.about-visual-img:hover {
+  box-shadow: 0 0 32px rgba(255, 70, 85, 0.12);
+}
+
+.about-visual-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-visual-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 60px rgba(255, 70, 85, 0.06);
+  pointer-events: none;
+}
+
+.about-visual-caption {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 420px;
+}
+
+@media (max-width: 700px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}

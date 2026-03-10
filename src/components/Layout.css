@@ -1,0 +1,9 @@
+.main {
+  flex: 1;
+  padding: calc(var(--space) * 2) 0;
+}
+
+.main .container {
+  padding-top: var(--space);
+  padding-bottom: var(--space);
+}

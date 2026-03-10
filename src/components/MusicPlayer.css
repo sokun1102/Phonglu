@@ -2,10 +2,10 @@
   position: fixed;
   bottom: 1.25rem;
   right: 1.25rem;
-  z-index: 20;
+  z-index: 25;
   padding: 0.5rem 0.9rem;
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: clamp(0.7rem, 1.8vw, 0.8rem);
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--text);
@@ -14,7 +14,9 @@
   border-radius: var(--radius);
   cursor: pointer;
   box-shadow: var(--glow);
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, bottom 0.25s;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .music-player-btn:hover {
@@ -22,11 +24,21 @@
   color: var(--neon-red);
 }
 
+.music-player-btn--active {
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+}
+.music-player-btn--active:hover {
+  background: rgba(15, 235, 158, 0.15);
+  color: var(--neon-green);
+}
+
+/* Desktop: hidden player (audio only) */
 .music-player {
   position: fixed;
   bottom: 0;
   right: 0;
-  z-index: 5;
+  z-index: 15;
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -34,8 +46,89 @@
   pointer-events: none;
 }
 
+.music-player .music-player-embed {
+  width: 1px;
+  height: 1px;
+}
+
 .music-player iframe {
   width: 1px;
   height: 1px;
   border: none;
+}
+
+/* Mobile: visible mini player so sound is allowed (required for mobile browsers) */
+@media (max-width: 768px) {
+  .music-player-btn {
+    right: max(1rem, env(safe-area-inset-right));
+    padding: 0.55rem 0.9rem;
+    font-size: 0.8rem;
+    min-height: 42px;
+    /* when playing, button sits above the bar */
+    bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .music-player-btn--active {
+    bottom: calc(120px + max(0.75rem, env(safe-area-inset-bottom)));
+  }
+
+  .music-player {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    opacity: 1;
+    pointer-events: auto;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .music-player .music-player-embed {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+  }
+
+  .music-player iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .music-player-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+    right: max(0.75rem, env(safe-area-inset-right));
+  }
+  .music-player-btn--active {
+    bottom: calc(100px + max(0.5rem, env(safe-area-inset-bottom)));
+  }
+  .music-player {
+    height: 100px;
+  }
+  .music-player iframe {
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 360px) {
+  .music-player-btn {
+    font-size: 0.7rem;
+    padding: 0.45rem 0.65rem;
+    min-height: 40px;
+  }
+  .music-player-btn--active {
+    bottom: calc(90px + max(0.5rem, env(safe-area-inset-bottom)));
+  }
+  .music-player {
+    height: 90px;
+  }
+  .music-player iframe {
+    min-height: 90px;
+  }
 }

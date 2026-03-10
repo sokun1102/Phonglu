@@ -63,13 +63,25 @@ export default function Post() {
               I’ll share more in future posts: hot drop vs safe drop, best loot routes, and how to play the last circles. If you’re still dropping into PUBG in 2025, you’re not alone — the game keeps getting updates and the community is still there. See you on the battleground.
             </p>
           </>
+        ) : post.slug === 'phantom-vandal' ? (
+          <>
+            <p>
+              In <strong>Counter-Strike 2</strong>, the AK-47 and M4A4 are the two main rifles: one for raw one-tap power, the other for control and spray. On T side you buy AK when you can; on CT you choose M4A4 or M4A1-S depending on position and economy. Map layout changes the pick — long range favours tapping with AK, tight angles and retakes often favour M4 spray control.
+            </p>
+            <p>
+              Full post content about CS2 will go here — spray patterns, when to force-buy which rifle, map-specific tips and rank experience. You can add more paragraphs, clips or screenshots.
+            </p>
+            <p>
+              Everything on this blog is about games: CS2, tactical FPS and the gaming community. No study or code — games only.
+            </p>
+          </>
         ) : (
           <>
             <p>
               Full post content about the game will go here — meta breakdown, tips, personal take and rank experience. You can add more paragraphs, clips or screenshots.
             </p>
             <p>
-              Everything on this blog is about games: Valorant, tactical FPS and the gaming community. No study or code — games only.
+              Everything on this blog is about games: CS2, tactical FPS and the gaming community. No study or code — games only.
             </p>
           </>
         )}

@@ -40,9 +40,9 @@
 .log-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: clamp(1.25rem, 3vw, 2rem);
   align-items: center;
-  padding: calc(var(--space) * 2.5) 0;
+  padding: clamp(var(--space), 4vw, calc(var(--space) * 2.5)) 0;
 }
 
 .log-hero-badge {
@@ -226,6 +226,20 @@
 @media (max-width: 768px) {
   .log-hero {
     grid-template-columns: 1fr;
+    padding: calc(var(--space) * 1.5) 0;
+  }
+  .log-hero-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+  .log-rank-banner {
+    padding: 0.6rem 1rem;
+  }
+  .log-rank-tier {
+    font-size: 1.15rem;
+  }
+  .btn-log {
+    padding: 0.65rem 1.1rem;
+    min-height: 44px;
   }
 }
 
@@ -252,7 +266,7 @@
 .log-stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: clamp(0.75rem, 1.5vw, 1rem);
 }
 
 .log-stat-card {
@@ -373,7 +387,7 @@
 .log-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: clamp(0.875rem, 2vw, 1.25rem);
 }
 
 .log-card {
@@ -460,6 +474,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+  .log-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
   .log-cards {
     grid-template-columns: 1fr;
@@ -470,8 +490,8 @@
 .log-dashboard {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  padding: calc(var(--space) * 2) 0;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(var(--space), 3vw, calc(var(--space) * 2)) 0;
   border-top: 1px solid var(--border);
   padding-bottom: calc(var(--space) * 3);
 }
@@ -583,6 +603,21 @@
   gap: 1.25rem;
 }
 
+.log-loadout-visual {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.log-loadout-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 160px;
+  object-fit: cover;
+}
+
 .log-loadout-rank {
   padding: 1.25rem 1.5rem;
   background: linear-gradient(135deg, rgba(255, 70, 85, 0.14) 0%, rgba(255, 70, 85, 0.04) 100%);
@@ -684,8 +719,48 @@
   }
 }
 
+@media (max-width: 480px) {
+  .log-section-title {
+    font-size: 0.85rem;
+  }
+  .log-card-body {
+    padding: 0.875rem;
+  }
+  .log-card-title {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 420px) {
   .log-loadout-specs {
     grid-template-columns: 1fr;
+  }
+  .log-stats-grid {
+    gap: 0.6rem;
+  }
+  .log-stat-card {
+    padding: 0.875rem;
+  }
+  .log-stat-value {
+    font-size: 1.05rem;
+  }
+  .log-stat-label {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .log-rank-tier {
+    font-size: 1rem;
+  }
+  .log-hero-visual img {
+    min-height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .log-feed-link {
+    padding: 0.85rem 0;
+    min-height: 52px;
   }
 }

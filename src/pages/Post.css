@@ -113,3 +113,27 @@
   border-radius: var(--radius);
   color: var(--neon-cyan);
 }
+
+@media (max-width: 768px) {
+  .post {
+    padding-bottom: calc(var(--space) * 2);
+  }
+  .post-header {
+    padding-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-title {
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+  }
+  .post-content-val {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .post-title {
+    font-size: 1.25rem;
+  }
+}

@@ -1,3 +1,4 @@
 {
+  "name": "phonglu",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

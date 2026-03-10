@@ -7,22 +7,23 @@ import './Log.css'
 
 const FEED_ITEMS = [
   { type: 'INTEL', text: 'Valorant meta 2025: agents and maps dominating', meta: '5 min read', icon: '◆', to: '/blog/valorant-meta-2025' },
-  { type: 'INTEL', text: 'Phantom vs Vandal: which rifle per map?', meta: '4 min read', icon: '▶', to: '/blog/phantom-vandal' },
+  { type: 'INTEL', text: 'AK-47 vs M4A4 in CS2: which rifle per map?', meta: '4 min read', icon: '▶', to: '/blog/phantom-vandal' },
   { type: 'INTEL', text: 'PUBG: Battlegrounds — why it still hits different', meta: '6 min read', icon: '◈', to: '/blog/pubg-battlegrounds' },
   { type: 'VCT', text: 'Valorant Champions Tour — watch live', meta: 'Twitch · valorant', icon: '●', href: 'https://www.twitch.tv/valorant' },
   { type: 'PATCH', text: 'Valorant patch notes & updates', meta: 'Official · Riot', icon: '◇', href: 'https://playvalorant.com/en-us/news/game-updates/' },
 ]
 
 const STATS = [
-  { label: 'WIN RATE', value: '54%', sub: 'Act 9' },
-  { label: 'MAIN', value: 'Jett / Raze', sub: 'Duelist' },
-  { label: 'HOURS', value: '800+', sub: 'Valorant' },
+  { label: 'WIN RATE', value: '74%', sub: 'Competitive' },
+  { label: 'MAIN', value: 'Counter-Strike 2', sub: 'Premier' },
+  { label: 'HOURS', value: '2000+', sub: 'CS2' },
 ]
 
-const AGENTS = ['Jett', 'Raze', 'Skye', 'Phoenix', 'Reyna']
-const MAPS_FAV = ['Ascent', 'Bind', 'Sunset', 'Icebox']
+const FAV_MAPS_1 = ['Mirage', 'Dust II', 'Nuke', 'Inferno', 'Overpass']
+const FAV_MAPS_2 = ['Ancient', 'Anubis', 'Vertigo']
 
-const CURRENT_RANK = { tier: 'Platinum 1', rr: '72 RR', goal: 'Diamond this act' }
+const CURRENT_RANK = { tier: 'The Global Elite', rr: '27,879 elo', goal: '27,879 elo' }
+const LOADOUT_MAIN = 'Counter-Strike 2'
 
 function formatDate(dateStr) {
   const [y, m, d] = dateStr.split('-')
@@ -62,7 +63,7 @@ export default function Log() {
             <span className="log-hero-accent">REALITY</span>
           </h1>
           <p className="log-hero-desc">
-            𝓟𝓸𝓷𝓰𝓟𝓲𝓷𝓴𝔂's gaming blog — Valorant meta, rank tips, clutch plays and tactical FPS.
+            𝓟𝓸𝓷𝓰𝓟𝓲𝓷𝓴𝔂's gaming blog — CS2, Valorant meta, rank tips, clutch plays and tactical FPS.
           </p>
           <div className="log-hero-cta">
             <Link to="/blog" className="btn-log btn-log-primary">BROWSE INTEL</Link>
@@ -89,17 +90,17 @@ export default function Log() {
 
         <section className="log-agents-maps">
           <div className="log-agents">
-            <h2 className="log-section-title"><span className="log-bar">|</span> MAIN AGENTS</h2>
+            <h2 className="log-section-title"><span className="log-bar">|</span> FAV MAPS</h2>
             <div className="log-tags">
-              {AGENTS.map((a, i) => (
-                <span key={a} className="log-tag" style={{ animationDelay: `${i * 0.05}s` }}>{a}</span>
+              {FAV_MAPS_1.map((m, i) => (
+                <span key={m} className="log-tag" style={{ animationDelay: `${i * 0.05}s` }}>{m}</span>
               ))}
             </div>
           </div>
           <div className="log-maps">
-            <h2 className="log-section-title"><span className="log-bar">|</span> FAV MAPS</h2>
+            <h2 className="log-section-title"><span className="log-bar">|</span> ALSO PLAY</h2>
             <div className="log-tags">
-              {MAPS_FAV.map((m, i) => (
+              {FAV_MAPS_2.map((m, i) => (
                 <span key={m} className="log-tag log-tag--map" style={{ animationDelay: `${0.2 + i * 0.05}s` }}>{m}</span>
               ))}
             </div>
@@ -163,6 +164,9 @@ export default function Log() {
           </div>
           <div className="log-dash-col log-loadout">
             <h2 className="log-dash-title"><span className="log-pulse" /> (()) CURRENT LOADOUT</h2>
+            <div className="log-loadout-visual">
+              <img src={headerImg} alt="Counter-Strike 2" />
+            </div>
             <div className="log-loadout-rank">
               <span className="log-loadout-rank-label">RANK</span>
               <div className="log-loadout-rank-main">
@@ -174,7 +178,7 @@ export default function Log() {
             <div className="log-loadout-specs">
               <div className="log-loadout-spec">
                 <span className="log-loadout-spec-label">MAIN</span>
-                <span className="log-loadout-spec-value">Valorant • Jett / Raze</span>
+                <span className="log-loadout-spec-value">{LOADOUT_MAIN}</span>
               </div>
               <div className="log-loadout-spec">
                 <span className="log-loadout-spec-label">GOAL</span>

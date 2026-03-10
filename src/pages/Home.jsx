@@ -5,9 +5,9 @@ import valorantImg from '../assets/VALORANT.webp'
 import './Home.css'
 
 const FEED_ITEMS = [
-  { type: 'ACHIEVEMENT', text: 'Rank up Gold 3 → Platinum 1', meta: '2 hours ago • 24 RR', icon: '◆' },
-  { type: 'MATCH', text: 'Clutch 1v3 với Jett trên Ascent', meta: 'Hôm qua • 28 kills', icon: '▶' },
-  { type: 'SQUAD', text: 'Tìm teammate cùng rank để stack', meta: 'Discord • #valorant-vn', icon: '◈' },
+  { type: 'ACHIEVEMENT', text: 'The Global Elite — 27,879 elo', meta: '2 hours ago • CS2', icon: '◆' },
+  { type: 'MATCH', text: 'Clutch 1v3 on Mirage', meta: 'Yesterday • 28 kills', icon: '▶' },
+  { type: 'SQUAD', text: 'Looking for teammates to stack', meta: 'Discord • #cs2', icon: '◈' },
 ]
 
 function formatDate(dateStr) {
@@ -37,7 +37,7 @@ export default function Home() {
             LEVEL UP YOUR <span className="hero-title-accent">REALITY</span>
           </h1>
           <p className="hero-desc">
-            Blog game của 𝓟𝓸𝓷𝓰𝓟𝓲𝓷𝓴𝔂 — meta Valorant, tip rank, clutch và mọi thứ về tactical FPS.
+            𝓟𝓸𝓷𝓰𝓟𝓲𝓷𝓴𝔂's gaming blog — CS2, Valorant meta, rank tips, clutch plays and tactical FPS.
           </p>
           <div className="hero-cta">
             <Link to="/blog" className="btn btn-primary">BROWSE INTEL</Link>
@@ -101,8 +101,8 @@ export default function Home() {
             <span className="dashboard-pulse" /> (()) CURRENT LOADOUT
           </h2>
           <div className="loadout-specs">
-            <p><span className="loadout-label">MAIN</span> <span className="loadout-value">Valorant • Jett / Raze</span></p>
-            <p><span className="loadout-label">RANK</span> <span className="loadout-value">Grind to Immortal</span></p>
+            <p><span className="loadout-label">MAIN</span> <span className="loadout-value">Counter-Strike 2</span></p>
+            <p><span className="loadout-label">RANK</span> <span className="loadout-value">The Global Elite · 27,879 elo</span></p>
           </div>
           <div className="loadout-status">
             <span className="loadout-status-text">"Headshot is the only shot that matters."</span>

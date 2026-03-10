@@ -5,6 +5,7 @@ const PAGES = [
   { to: '/log', label: 'LOG' },
   { to: '/blog', label: 'INTEL' },
   { to: '/about', label: 'LOADOUT' },
+  { to: '/love', label: 'MY LOVE' },
 ]
 
 const SOCIAL = [
@@ -22,7 +23,7 @@ export default function Footer() {
             <span className="footer-logo">𝓟𝓸𝓷𝓰𝓟𝓲𝓷𝓴𝔂</span>
             <p className="footer-tagline">EST. IN THE DIGITAL VOID</p>
             <p className="footer-desc">
-              Gaming blog — Valorant, PUBG, meta & rank. Hoa Sen University K22, Faculty of IT.
+              Gaming blog — CSGO 2, Valorant, PUBG, meta & rank. Hoa Sen University K22, Faculty of IT.
             </p>
           </div>
           <nav className="footer-nav">

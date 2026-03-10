@@ -33,12 +33,12 @@
   color: var(--neon-green);
 }
 
-/* Desktop: hidden player (audio only) */
-.music-player {
+/* Hidden YouTube player (audio only) */
+.music-player-hidden {
   position: fixed;
   bottom: 0;
   right: 0;
-  z-index: 15;
+  z-index: 5;
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -46,15 +46,169 @@
   pointer-events: none;
 }
 
-.music-player .music-player-embed {
-  width: 1px;
-  height: 1px;
+.music-player-hidden iframe {
+  width: 1px !important;
+  height: 1px !important;
+  border: none !important;
 }
 
-.music-player iframe {
-  width: 1px;
-  height: 1px;
+/* Visible music bar with slider */
+.music-player-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  padding-bottom: max(0.6rem, env(safe-area-inset-bottom));
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.music-player-bar-time {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.music-player-slider {
+  flex: 1;
+  min-width: 0;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(
+    to right,
+    var(--neon-red) 0%,
+    var(--neon-red) var(--progress, 0%),
+    var(--bg-elevated) var(--progress, 0%)
+  );
+  border-radius: 3px;
+  outline: none;
+}
+
+.music-player-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--neon-red);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 70, 85, 0.5);
+  transition: transform 0.15s;
+}
+
+.music-player-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.music-player-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
   border: none;
+  background: var(--neon-red);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 70, 85, 0.5);
+}
+
+.music-player-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: transparent;
+}
+
+.music-player-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: #0000;
+}
+
+.music-player-next {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--neon-red);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.music-player-next:hover {
+  background: rgba(255, 70, 85, 0.18);
+}
+
+.music-player-stop {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--text-muted);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.music-player-stop:hover {
+  border-color: var(--neon-red);
+  color: var(--neon-red);
+  background: rgba(255, 70, 85, 0.12);
+}
+
+.music-player-playlist {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 2.6rem;
+  z-index: 19;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.35rem 1rem;
+  pointer-events: none;
+}
+
+.music-player-track-btn {
+  pointer-events: auto;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(22, 22, 27, 0.9);
+  color: var(--text-muted);
+  cursor: pointer;
+  max-width: 220px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.music-player-track-btn--active {
+  border-color: var(--neon-red);
+  color: var(--neon-red);
+  box-shadow: 0 0 16px rgba(255, 70, 85, 0.35);
+}
+
+@media (max-width: 768px) {
+  .music-player-playlist {
+    bottom: 2.8rem;
+    padding-bottom: 0.4rem;
+  }
 }
 
 /* Mobile: same as desktop — hidden player, only audio (no YouTube UI) */

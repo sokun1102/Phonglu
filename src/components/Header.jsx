@@ -6,6 +6,7 @@ const navItems = [
   { to: '/log', label: 'LOG' },
   { to: '/blog', label: 'INTEL' },
   { to: '/about', label: 'LOADOUT' },
+  { to: '/love', label: 'MY LOVE' },
 ]
 
 export default function Header() {
